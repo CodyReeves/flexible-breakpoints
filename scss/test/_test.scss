@@ -1,0 +1,35 @@
+//Example css this is not needed
+
+$box-size: 100px;
+$light-grey: #ECEFF1;
+$blue: #40C4FF;
+$white: #fff;
+
+body {
+  margin: 0 auto 30px auto;
+  background-color: $blue;
+  font: {
+    family: Helvetica, sans-serif;
+    weight: normal;
+    size: 18px;
+  }
+
+  h1, h3 {
+    text-align: center;
+    color: darken($blue, 40%);
+  }
+
+  h1 {
+    margin-bottom: 5px;
+    @include breakpoint(sm) {
+      margin: 7px;
+    }
+  }
+
+  h3 {
+    margin-top: 5px;
+    @include breakpoint(max-width $lg min-width $sm, screen) {
+      margin: 7px;
+    }
+  }
+}
