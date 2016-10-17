@@ -1,21 +1,9 @@
-/* Simple Shadow Mixin Using SCSS Maps for text, box and inset shadows
- * @author Cody Reeves
- * @access public
- * @param $type - light or dark
- * @param $level - 1, 2, 3, 4, or 5 by default
- * -- Optional --
- * @param $shadow-style - add inset as last value in mixen for inner shadow
- * @param $text - set to text for text shadow
- * @param $text-color - if inset and text is enabled, $inset-text-hack has to be enabled (result not guarenteed) -colors the text
- * @return Desired Drop Shadow
- *
- * Usage  : @include shadow($type, $level, $shadow-style: null, $text: null, $text-color: null);
- *        : @include shadow(light, $shadow, inset);
- *        : @include shadow(t-shadow, 1, inset, text, $white);
- */
-
- /* Breakpoints
- ========================================================================== */
+/* Flexible Breakpoints
+* ==================================
+* @author Cody Reeves
+* @access public
+* @licence MIT
+*/
 
  /* Breakpoints Vars based on screen size
  ================================== */
@@ -52,51 +40,6 @@
    'lg': $lg,
    'xl': $xl
  );
-
-
-
- /* Min-Width Breakpoints
- ==================================
- Leaving this here till new one is  fully tested
- @mixin breakpoint($point) {
-   @if $point == lg {
-     @media only screen and (min-width: $lg) { @content; }
-   }
-   @else if $point == md {
-     @media only screen and (min-width: $md) { @content; }
-   }
-   @else if $point == sm {
-     @media only screen and (min-width: $sm)  { @content; }
-   }
-   @else if $point == xl {
-     @media only screen and (min-width: $xl)  { @content; }
-   } @else {
-     @warn 'Breakpoint size is not recognized';
-   }
- }
- */
-
- /* Max-Width Breakpoints
-    -- This will be left here to avoid breaking changes within framework
-    TODO:: Deprecate this breakpoint next breaking change push.
- ================================== */
-
- @mixin max-breakpoint($point) {
-   @if $point == lg {
-     @media (max-width: $lg) { @content; }
-   }
-   @else if $point == md {
-     @media (max-width: $md) { @content; }
-   }
-   @else if $point == sm {
-     @media (max-width: $sm)  { @content; }
-   }
-   @else if $point == xl {
-     @media (max-width: $xl)  { @content; }
-   }
- }
-
-
 
  /* Breakpoint Mixen
  * ==================================
