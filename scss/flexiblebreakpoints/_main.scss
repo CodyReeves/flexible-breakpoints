@@ -8,7 +8,7 @@
 /* Breakpoints Vars based on screen size
 ================================== */
 
-$xs: 768px !default;
+$xs: 1px !default;
 
 $sm: 768px !default;
 
@@ -18,7 +18,7 @@ $lg: 1280px !default;
 
 $xl: 1600px !default;
 
-$media-guery-xs: min-width sm !default;
+$media-query-xs: max-width $sm !default;
 $media-query-sm: sm !default;
 $media-query-md: md !default;
 $media-query-lg: lg !default;
