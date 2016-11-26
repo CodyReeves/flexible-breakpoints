@@ -1,0 +1,27 @@
+{
+  "name": "flexible-breakpoints",
+  "description": "A flexible SCSS mixin to generate Media Quiries easily and effeciently",
+  "main": "scss/main.scss",
+  "authors": [
+    "Cody Reeves",
+  ],
+  "license": "MIT",
+  "keywords": [
+    "SCSS",
+    "Breakpoints",
+    "Media Queries",
+    "CSS",
+    "Screen",
+    "Mobile",
+    "Desktop"
+  ],
+  "homepage": "https://github.com/CodyReeves/flexible-breakpoints",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "scss/test"
+  ]
+}
