@@ -8,7 +8,7 @@ Add to your package.json:
 
 ```
 "dependencies": {
-  "flexible-breakpoints": "git+ssh://github.com/CodyReeves/FlexibleBreakpoints.git"
+  "flexible-breakpoints": "git+ssh://github.com/CodyReeves/flexible-breakpoints.git"
 },
 ```
 
