@@ -1,6 +1,22 @@
 # FlexibleBreakpoints
 A flexible SCSS mixin to generate Media Quiries easily and effeciently.
 
+##Instillation:
+
+Can be installed through NPM:
+Add to your package.json:
+
+```
+"dependencies": {
+  "flexible-breakpoints": "git+ssh://github.com/CodyReeves/FlexibleBreakpoints.git"
+},
+```
+
+Add to your SCSS:
+```
+@import "PATH-TO-NODE_MODULES/node_modules/flexible-breakpoints/scss/main";
+```
+
 #Usage:
 
 ```
@@ -10,26 +26,27 @@ A flexible SCSS mixin to generate Media Quiries easily and effeciently.
 
 ```
 
-
 ##Explained
 
-$queries => List of arguments for queries written like  `max-width 500px max-height 1200px`
-            NOTE: This must be written in list without commas.
-            NOTE: First argument => query property, Second argument=> value for query.
-$type => Type of query for example `screen` or `all`.
-$query-fallback => If you would like to set a fallback, Default value: `null`, Exports to css like:
+`$queries` => List of arguments for queries written like  `max-width 500px max-height 1200px`
+              NOTE: This must be written in list without commas.
+              NOTE: First argument => query property, Second argument=> value for query.
+
+`$type` => Type of query for example `screen` or `all`.
+
+`$query-fallback` => If you would like to set a fallback, Default value: `null`, Exports to css like:
 ```
 #{$query-fallback} & {
   @content;
 }
 ```
-$breakpoints => Sets what breakpoint map to use, Default value: `$breakpoints`
+$breakpoints => Sets what breakpoint map to use, Default value: `$breakpoints`. See Default Variables for more info.
 
 ##Regular Usage
 
 ```
 
-@include breakpoint(max-width $lg min-width $sm, screen) {
+@include breakpoint(max-width 1200px min-width 400px) {
     margin: 7px;
 }
 
