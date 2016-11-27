@@ -26,7 +26,7 @@ $media-query-xl: xl !default;
 
 
 $queries: (
-  xs: breakpoint($media-guery-xs),
+  xs: breakpoint($media-query-xs),
   sm: breakpoint($media-query-sm),
   md: breakpoint($media-query-md),
   lg: breakpoint($media-query-lg),
