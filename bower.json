@@ -3,7 +3,7 @@
   "description": "A flexible SCSS mixin to generate Media Quiries easily and effeciently",
   "main": "scss/main.scss",
   "authors": [
-    "Cody Reeves"
+    "Cody Reeves<codreev@gmail.com>"
   ],
   "license": "MIT",
   "keywords": [
