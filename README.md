@@ -3,7 +3,7 @@ A flexible SCSS mixin to generate Media Quiries easily and effeciently.
 
 ##Instillation:
 
-Can be installed through NPM:
+###NPM:
 Add to your package.json:
 
 ```
@@ -15,6 +15,18 @@ Add to your package.json:
 Add to your SCSS:
 ```
 @import "PATH-TO-NODE_MODULES/node_modules/flexible-breakpoints/scss/main";
+```
+###Bower
+Add to your bower.json:
+
+```
+"dependencies": {
+  "flexible-breakpoints": >=1.0.0,
+},
+```
+Add to your SCSS:
+```
+@import "PATH-TO-BOWER_DIR/bower/flexible-breakpoints/scss/main";
 ```
 
 #Usage:
