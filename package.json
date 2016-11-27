@@ -1,5 +1,5 @@
 {
-  "name": "FlexibleBreakpoints",
+  "name": "flexible-breakpoints",
   "version": "1.0.0",
   "description": "A flexible SCSS mixin to generate Media Quiries easily and effeciently",
   "author": "Cody Reeves <codreev@gmail.com>",
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CodyReeves/FlexibleBreakpoints"
+    "url": "https://github.com/CodyReeves/flexible-breakpoints"
   },
   "bugs": {
-    "url": "https://github.com/CodyReeves/FlexibleBreakpoints/issues"
+    "url": "https://github.com/CodyReeves/flexible-breakpoints/issues"
   },
   "keywords": [
     "SCSS"
