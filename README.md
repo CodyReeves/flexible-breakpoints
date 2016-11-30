@@ -2,6 +2,7 @@
 A flexible SCSS mixin to generate Media Quiries easily and effeciently.
 
 [![GitHub version](https://badge.fury.io/gh/CodyReeves%2Fflexible-breakpoints.svg)](https://badge.fury.io/gh/CodyReeves%2Fflexible-breakpoints)
+[![Bower version](https://badge.fury.io/bo/flexible-breakpoints.svg)](https://badge.fury.io/bo/flexible-breakpoints)
 
 ##Instillation:
 
@@ -153,7 +154,7 @@ $media-query-xl: xl !default;
 ```
 
 The queries set here will create a min-width automatically.
-Please note these cannot be combined with other queries within the same argument
+
 ####Usage
 ```
 @include breakpoint(sm) {
