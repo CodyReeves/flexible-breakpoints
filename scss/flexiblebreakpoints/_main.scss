@@ -1,21 +1,17 @@
-/* Flexible Breakpoints
-* ==================================
-* @author Cody Reeves
-* @access public
-* @licence MIT
-*/
+// Flexible Breakpoints
+// ==================================
+// @author Cody Reeves
+// @access public
+// @licence MIT
+//
 
-/* Breakpoints Vars based on screen size
-================================== */
+// Breakpoints Vars based on screen size
+// ==================================
 
 $xs: 1px !default;
-
 $sm: 768px !default;
-
 $md: 992px !default;
-
 $lg: 1280px !default;
-
 $xl: 1600px !default;
 
 $media-query-xs: max-width $sm !default;
@@ -26,7 +22,7 @@ $media-query-xl: xl !default;
 
 
 $queries: (
-  xs: breakpoint($media-guery-xs),
+  xs: breakpoint($media-query-xs),
   sm: breakpoint($media-query-sm),
   md: breakpoint($media-query-md),
   lg: breakpoint($media-query-lg),
@@ -41,14 +37,15 @@ $breakpoints: (
   'xl': $xl
 );
 
-/* Breakpoint Mixen
-* ==================================
-* @param $queries: min-width max-width height min-height max-height key value
-* @param $type: media-type
-* @param $query-fallback: string selector class
-* @param $breakpoints: map created by dev
-* @return css media query
-*/
+
+// Breakpoint Mixen
+// ==================================
+// @param $queries: min-width max-width height min-height max-height key value
+// @param $type: media-type
+// @param $query-fallback: string selector class
+// @param $breakpoints: map created by dev
+// @return css media query
+//
 
 @mixin breakpoint($queries, $type: all, $query-fallback: null, $breakpoints: $breakpoints) {
 
@@ -69,10 +66,10 @@ $breakpoints: (
 }
 
 
-/* Query Mixen
-* ==================================
-* @return query from queries map
-*/
+// Query Mixen
+// ==================================
+// @return query from queries map
+//
 
 @mixin query($query, $queries: $queries) {
   @if not map-has-key($queries, $query) {
@@ -93,12 +90,11 @@ $breakpoints: (
   }
 }
 
-
-/* List To String Function
-* ==================================
-* @parm $list:
-* @return $string
-*/
+// List To String Function
+// ==================================
+// @parm $list:
+// @return $string
+//
 
 @function list-to-string($list, $glue: ' ') {
   $res: null;
@@ -117,106 +113,104 @@ $breakpoints: (
   @return $res;
 }
 
-
-/* Parse Breakpoint
-* ==================================
-* Parses breakpoint if map value from $queries is used or if a preset property is used: width or height.
-* @return map with possible 4 keys -
-* @returnKey min-width: {value}
-* @returnKey max-width: {value}
-* @returnKey min-height: {value}
-* @returnKey max-height: {value}
-*/
+// Parse Breakpoint
+// ==================================
+// Parses breakpoint if map value from $queries is used or if a preset property is used: width or height.
+// @return map with possible 4 keys -
+// @returnKey min-width: {value}
+// @returnKey max-width: {value}
+// @returnKey min-height: {value}
+// @returnKey max-height: {value}
+//
 
 @function parse-breakpoint($queries, $breakpoints) {
   $return-value: ();
   $count: 1;
-  $maxWidth: null;
-  $minHeight: null;
-  $maxHeight: null;
+
   $lengthValue: length($queries);
 
-  //Checks to see if one of the pre-set breakpoints are being used
+  // Checks to see if one of the pre-set breakpoints are being used
   $width: nth($queries, 1);
   $width: validate($width, $breakpoints);
 
-  //If a breakpoint is being used adds value to min-width -- this keeps it non-breaking
+  // If a breakpoint is being used adds value to min-width -- this keeps it non-breaking
   @if $width {
-    //sets value
+    // Sets value
     $return-value: map-merge($return-value, (min-width: $width));
-    // remove value form list
+    // Remove value form list
     $queries: set-nth($queries, 1, null);
   }
 
-  //Gets index of width Index queries in list
+  // Gets index of width Index queries in list
   $widthIndex: index($queries, width);
 
   @if $widthIndex {
-    //grabs value next to width
+    // Grabs value next to width
     $minWidth: nth($queries, $widthIndex + 1);
     $minWidth: validate($minWidth, $breakpoints);
+    $maxWidth: null;
 
     @if $minWidth {
-      //merging min value with return string
+      // Merging min value with return string
       $return-value: map-merge($return-value, (min-width: $minWidth));
-      //removes value from list
+      // Removes value from list
       $queries: set-nth($queries, $widthIndex + 1, null);
     }
 
-    //checks to see if only one value
+    // Checks to see if only one value
     @if $minWidth and $lengthValue >= 2 {
-      //grabs second value next to width should be max-width value
+      // Grabs second value next to width should be max-width value
       $maxWidth: nth($queries, $widthIndex + 2);
       $maxWidth: validate($maxWidth, $breakpoints);
     }
 
     @if $maxWidth {
-      //Subtracts 1 from value to enable breakpoint 1px early
+      // Subtracts 1 from value to enable breakpoint 1px early
       $maxWidth: $maxWidth - 1px;
-      //merging max value with return string
+      // Merging max value with return string
       $return-value: map-merge($return-value, (max-width: $maxWidth));
-      //removes value from list
+      // Removes value from list
       $queries: set-nth($queries, $widthIndex + 2, null);
     }
-    //Removes height from list
+    // Removes height from list
     $queries: set-nth($queries, $widthIndex, null);
   }
 
-
-  //Gets index of height queries in list
+  // Gets index of height queries in list
   $heightIndex: index($queries, height);
 
   @if $heightIndex {
-    //grabs value next to height
+    // Grabs value next to height
     $minHeight: nth($queries, $heightIndex + 1);
     $minHeight: validate($minHeight, $breakpoints);
+    $maxHeight: null;
 
     @if $minHeight {
-      //merging min value with return string
+      // Merging min value with return string
       $return-value: map-merge($return-value, (min-height: $minHeight));
-      //removes value from list
+      // Removes value from list
       $queries: set-nth($queries, $heightIndex + 1, null);
     }
 
-    //Checks to see if there is only one value
+    // Checks to see if there is only one value
     @if $lengthValue - $heightIndex >= 2 {
-      //grabs second value next to height should be max-height value
+      // Grabs second value next to height should be max-height value
       $maxHeight: nth($queries, $heightIndex + 2);
       $maxHeight: validate($maxHeight, $breakpoints);
     }
 
     @if $maxHeight {
       $maxHeight: $maxHeight - 1px;
-      //merging max value with return string
+      // Merging max value with return string
       $return-value: map-merge($return-value, (max-height: $maxHeight));
-      //remove value from list
+      // Remove value from list
       $queries: set-nth($queries, $heightIndex + 2, null);
     }
-    //Removes height from list
+    // Removes height from list
     $queries: set-nth($queries, $heightIndex, null);
   }
 
-  //Checks for other queries
+  // Checks for other queries
   @while $count <= length($queries) {
     $key: nth($queries, $count);
 
@@ -235,41 +229,33 @@ $breakpoints: (
 }
 
 
-/* Validate function
-* ==================================
-* Checks if $query is:
-* $key in the $breakpoints map, number, "max", "max-width" or "max-height" string
-*/
+// Validate function
+// ==================================
+// Checks if $query is:
+// $key in the $breakpoints map or number string
+//
 
 @function validate($query, $breakpoints) {
   $return-value: null;
 
   @if map-has-key($breakpoints, $query) {
     $return-value: map-get($breakpoints, $query);
-  }
-
-  @else if type-of($query) == number {
+  } @else if type-of($query) == number {
     $return-value: $query;
-  }
-
-  @else if $query == "max" or $query == "max-height" or $query == "max-width" {
-    $return-value: 0;
-  }
-
-  @else {
+  } @else {
     $return-value: null;
   }
   @return $return-value;
 }
 
 
-/* Query Mixen
-* ==================================
-* @return map with three keys
-* @returnKey type: Media type
-* @returnKey media-string: media query string
-* @returnKey query-fallback: query fallback (if any)
-*/
+// Query Mixen
+// ==================================
+// @return map with three keys
+// @returnKey type: Media type
+// @returnKey media-string: media query string
+// @returnKey query-fallback: query fallback (if any)
+//
 
 @function breakpoint($queries, $type: all, $query-fallback: null, $breakpoints: $breakpoints) {
   $media-string: ();
