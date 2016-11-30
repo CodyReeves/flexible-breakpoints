@@ -167,3 +167,20 @@ Will Export To:
 
 }
 ```
+
+##Breakpoint function
+
+```
+@function breakpoint($queries, $type: all, $query-fallback: null, $breakpoints: $breakpoints) {}
+```
+NOTE: Arguments within function are written and used exactly like the mixin.  
+
+Function returns a map of the values:
+
+```
+$return-value: (
+  type: , <- Which is the type of query
+  media-string: list-to-string($media-string), <- the string of inputed as queries
+  query-fallback: $query-fallback <- will be none in none provided, returns a fallback
+);
+```
