@@ -13,9 +13,7 @@ var gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css'),
     uncss = require('gulp-uncss'),
     runSequence = require('run-sequence'),
-    uglify = require('gulp-uglify'),
-    imageop = require('gulp-image-optimization'),
-    svgmin = require('gulp-svgmin');
+    uglify = require('gulp-uglify');
 
 /*---------------------------------------------------------
  Required paths for Gulp
@@ -118,28 +116,6 @@ gulp.task('js-compile', function(){
         .pipe(uglify())
         .pipe(gulp.dest( paths.js.dest ))
 });
-
-/*---------------------------------------------------------
- Image Tasks
- --------------------------------------------------------*/
-
- /* Minify PNG, JPEG, GIF
- ----------------------------------*/
-
- gulp.task('opt-img', function(cb) {
-     gulp.src( paths.img.src ).pipe(imageop({
-         optimizationLevel: 5,
-         progressive: true,
-         interlaced: true
-     })).pipe(gulp.dest( paths.img.dest )).on('end', cb).on('error', cb);
- });
-
- /* Image Task
- ----------------------------------*/
-
- gulp.task( 'image', function() {
-     gulp.start('opt-img');
- });
 
 /*---------------------------------------------------------
  Going Live Tasks -- Pushing to server

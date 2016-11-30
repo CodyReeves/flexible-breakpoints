@@ -1,9 +1,11 @@
 # FlexibleBreakpoints
 A flexible SCSS mixin to generate Media Quiries easily and effeciently.
 
+[![GitHub version](https://badge.fury.io/gh/CodyReeves%2Fflexible-breakpoints.svg)](https://badge.fury.io/gh/CodyReeves%2Fflexible-breakpoints)
+
 ##Instillation:
 
-Can be installed through NPM:
+###NPM:
 Add to your package.json:
 
 ```
@@ -15,6 +17,18 @@ Add to your package.json:
 Add to your SCSS:
 ```
 @import "PATH-TO-NODE_MODULES/node_modules/flexible-breakpoints/scss/main";
+```
+###Bower
+Add to your bower.json:
+
+```
+"dependencies": {
+  "flexible-breakpoints": >=1.0.0,
+},
+```
+Add to your SCSS:
+```
+@import "PATH-TO-BOWER_DIR/bower/flexible-breakpoints/scss/main";
 ```
 
 #Usage:
