@@ -19,7 +19,7 @@ Add to your SCSS:
 ```
 @import "PATH-TO-NODE_MODULES/node_modules/flexible-breakpoints/scss/main";
 ```
-###Bower
+### Bower
 Add to your bower.json:
 
 ```
@@ -32,7 +32,7 @@ Add to your SCSS:
 @import "PATH-TO-BOWER_DIR/bower/flexible-breakpoints/scss/main";
 ```
 
-#Usage:
+# Usage:
 
 ```
 @include breakpoint($queries, $type, $query-fallback, $breakpoints) {
@@ -41,7 +41,7 @@ Add to your SCSS:
 
 ```
 
-##Explained
+## Explained
 
 `$queries` => List of arguments for queries written like  `max-width 500px max-height 1200px`
               NOTE: This must be written in list without commas.
@@ -57,7 +57,7 @@ Add to your SCSS:
 ```
 $breakpoints => Sets what breakpoint map to use, Default value: `$breakpoints`. See Default Variables for more info.
 
-##Regular Usage
+## Regular Usage
 
 ```
 
@@ -68,12 +68,12 @@ $breakpoints => Sets what breakpoint map to use, Default value: `$breakpoints`. 
 
 ```
 
-###Available Queries:
+### Available Queries:
 
 - Any CSS Media Query
 - Preset Queries: width, height
 
-####Width
+#### Width
 Width accepts 2 values in one argument:
 - First value sets the min-width
 - Second value sets the max-width
@@ -103,7 +103,7 @@ Will export to:
 }
 ```
 
-####Height
+#### Height
 Height accepts 2 values in one argument:
 - First value sets the min-height
 - Second value sets the max-height
@@ -133,9 +133,9 @@ Will export to:
 
 ```
 
-##Default Variables
+## Default Variables
 
-###Sets Breakpoint screen values
+### Sets Breakpoint screen values
 ```
 $xs: 1px !default;
 $sm: 768px !default;
@@ -144,7 +144,7 @@ $lg: 1280px !default;
 $xl: 1600px !default;
 ```
 
-###Sets Breakpoint queries
+### Sets Breakpoint queries
 ```
 $media-query-xs: max-width $sm !default;
 $media-query-sm: sm !default;
@@ -155,7 +155,7 @@ $media-query-xl: xl !default;
 
 The queries set here will create a min-width automatically.
 
-####Usage
+#### Usage
 ```
 @include breakpoint(sm) {
 
@@ -168,7 +168,7 @@ Will Export To:
 }
 ```
 
-##Breakpoint function
+## Breakpoint function
 
 ```
 @function breakpoint($queries, $type: all, $query-fallback: null, $breakpoints: $breakpoints) {}
