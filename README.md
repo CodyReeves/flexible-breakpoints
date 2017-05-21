@@ -4,9 +4,9 @@ A flexible SCSS mixin to generate Media Quiries easily and effeciently.
 [![GitHub version](https://badge.fury.io/gh/CodyReeves%2Fflexible-breakpoints.svg)](https://badge.fury.io/gh/CodyReeves%2Fflexible-breakpoints)
 [![Bower version](https://badge.fury.io/bo/flexible-breakpoints.svg)](https://badge.fury.io/bo/flexible-breakpoints)
 
-##Instillation:
+## Instillation:
 
-###NPM:
+### NPM:
 Add to your package.json:
 
 ```
